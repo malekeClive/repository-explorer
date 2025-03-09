@@ -16,7 +16,7 @@ export default function SectionSearchResult({
   return (
     <>
       {searchUser && userData && (
-        <p className="max-w-screen-sm mx-auto mt-10 text-muted-foreground">
+        <p className="max-w-screen-sm mx-5 md:mx-auto mt-10 text-muted-foreground">
           Result for {searchUser}
         </p>
       )}
@@ -34,16 +34,16 @@ export default function SectionSearchResult({
               <Accordion
                 type="single"
                 collapsible
+                className="mx-5 md:mx-auto"
                 onValueChange={(value) => {
                   if (value) {
-                    console.log("value: ", value);
                     handleFetchRepo(value);
                   }
                 }}
               >
                 {userData?.map((user) => (
                   <AccordionItem key={user.id} value={user.login}>
-                    <AccordionTrigger>
+                    <AccordionTrigger data-testid={`accordion-trigger`}>
                       <div className="flex items-center gap-4">
                         <img
                           src={user.avatar_url}
@@ -51,7 +51,9 @@ export default function SectionSearchResult({
                           className="w-10 h-10 rounded-full"
                         />
                         <div className="flex flex-col items-start">
-                          <span className="text-lg font-semibold">{user.login}</span>
+                          <span className="text-lg font-semibold">
+                            {user.login}
+                          </span>
                           <a
                             href={user.html_url}
                             target="_blank"

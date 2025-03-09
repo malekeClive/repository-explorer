@@ -10,7 +10,7 @@ export default function SectionSearch({
   handleSubmitSearchUser,
 }: SectionSearchProps) {
   return (
-    <div className="flex flex-col gap-4 max-w-screen-sm mx-auto mt-10">
+    <div className="flex flex-col gap-4 max-w-screen-sm mx-5 md:mx-auto mt-10">
       <Input
         placeholder="Search"
         value={searchUser}
